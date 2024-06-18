@@ -1,0 +1,449 @@
+
+
+// -- Timer define
+
+#include "OTQV2_Timer.h"
+
+// app timer structure define
+
+APP_TIMER_DEF(m_IntervalTimer_ADC);  
+APP_TIMER_DEF(m_IntervalTimer_EPD);  
+APP_TIMER_DEF(m_IntervalTimer);  
+APP_TIMER_DEF(m_IntervalTimer_RTC);
+APP_TIMER_DEF(m_LEDIndicatorTimer);
+APP_TIMER_DEF(m_ButtonTimer_Push);
+APP_TIMER_DEF(m_ButtonTimer_Release);
+APP_TIMER_DEF(m_BLEActiveTimer);
+APP_TIMER_DEF(m_EPDReturnTimer);
+APP_TIMER_DEF(m_BLEConnectTimer);
+
+
+// app timer structure define
+
+
+uint32 RecordIntervalTimeSec;
+
+extern stMain Main;
+nrf_drv_timer_t LEDINDICATOR_TIMER_INSTANCE		= NRF_DRV_TIMER_INSTANCE(3); 
+//const nrf_drv_timer_t m_timer								= NRF_DRV_TIMER_INSTANCE(1);			 // timer 1 use in SAADC
+//nrf_drv_timer_t BUTTONRELEASE_TIMER_INSTANCE	= NRF_DRV_TIMER_INSTANCE(2); 
+//nrf_drv_timer_t INTERVAL_TIMER_INSTANCE				= NRF_DRV_TIMER_INSTANCE(0);		// interval timer active by RTC
+//nrf_drv_timer_t BUTTONPUSH_TIMER_INSTANCE			= NRF_DRV_TIMER_INSTANCE(4); 
+
+
+app_timer_timeout_handler_t LedIndicatorTimer_handler(void* p_context)
+{
+    // 타이머 인터럽트 핸들러 함수의 내용을 여기에 작성합니다.
+	if(Main.Device.RunningStatus != RunStat_Booting)			// 부팅 중일땐  작동하지 않음
+		{
+		Main.Key.LEDIndicatorCallFlag = 1;
+		}
+//LedIndicatorTimer_Start();
+}
+
+
+	
+#if 0			// 1 = rtc instance , 0 = app timer
+	void ButtonPushTimer_Init(void)
+	{
+	// 타이머 구성을 위한 구조체 설정
+	nrf_drv_timer_config_t timer_cfg = NRF_DRV_TIMER_DEFAULT_CONFIG;
+	timer_cfg.frequency = 5;					     // 500khz
+	timer_cfg.mode = NRF_TIMER_MODE_TIMER; // 타이머 모드 설정
+	timer_cfg.bit_width = NRF_TIMER_BIT_WIDTH_32; // 타이머 비트 너비 설정. 
+
+	// 타이머 초기화
+	nrf_drv_timer_init(&BUTTONPUSH_TIMER_INSTANCE, &timer_cfg, ButtonPushTimer_handler);
+	nrfx_timer_compare(&BUTTONPUSH_TIMER_INSTANCE,0,3000 * 500,true);			// 버튼 롱 푸시 타이머
+	}
+
+	void ButtonPushTimer_Start(void)
+	{
+	nrf_drv_timer_disable(&BUTTONPUSH_TIMER_INSTANCE);
+	nrfx_timer_clear(&BUTTONPUSH_TIMER_INSTANCE);
+	nrf_drv_timer_enable(&BUTTONPUSH_TIMER_INSTANCE);
+	}
+
+	void ButtonPushTimer_Stop(void)
+	{
+	nrf_drv_timer_disable(&BUTTONPUSH_TIMER_INSTANCE);
+	nrfx_timer_clear(&BUTTONPUSH_TIMER_INSTANCE);
+	}
+
+	uint32 ButtonPushTimer_GetTick(void)
+	{
+	return nrfx_timer_capture(&BUTTONPUSH_TIMER_INSTANCE , 4);
+	}
+
+	nrfx_timer_event_handler_t ButtonPushTimer_handler(void* p_context)
+	{
+			// 타이머 인터럽트 핸들러 함수의 내용을 여기에 작성합니다.
+		if(Main.Device.RunningStatus != RunStat_Booting)			// 부팅 중일땐  작동하지 않음
+			{
+			if(Main.Key.KeyPushFlag)
+				{
+				Main.Key.KeyPushFlag = 0;
+				Main.Key.KeyProcessCallFlag = 1;
+				}
+			}
+	nrfx_timer_clear(&BUTTONRELEASE_TIMER_INSTANCE);
+	nrf_drv_timer_disable(&BUTTONRELEASE_TIMER_INSTANCE);
+
+	}
+
+#else
+	void ButtonPushTimer_Init(void)
+	{
+
+	}
+
+	void ButtonPushTimer_Start(void)
+	{
+		app_timer_start(m_ButtonTimer_Push, APP_TIMER_TICKS(10000), NULL);
+	}
+
+	void ButtonPushTimer_Stop(void)
+	{
+		app_timer_stop(m_ButtonTimer_Push);	
+	}
+
+	uint32 ButtonPushTimer_GetTick(void)
+	{
+	return app_timer_cnt_get();
+	}
+
+	nrfx_timer_event_handler_t ButtonPushTimer_handler(void* p_context)
+	{
+			// 타이머 인터럽트 핸들러 함수의 내용을 여기에 작성합니다.
+		if(Main.Device.RunningStatus != RunStat_Booting)			// 부팅 중일땐  작동하지 않음
+			{
+			if(Main.Key.KeyPushFlag)
+				{
+				Main.Key.KeyPushFlag = 0;
+				Main.Key.KeyProcessCallFlag = 1;
+				}
+			}
+	}
+
+#endif
+
+
+#if 0
+	void ButtonReleaseTimer_Init(void)
+	{
+	// 타이머 구성을 위한 구조체 설정
+	nrf_drv_timer_config_t timer_cfg = NRF_DRV_TIMER_DEFAULT_CONFIG;
+	timer_cfg.frequency = 5;					     // 500khz
+	timer_cfg.mode = NRF_TIMER_MODE_TIMER; // 타이머 모드 설정
+	timer_cfg.bit_width = NRF_TIMER_BIT_WIDTH_32; // 타이머 비트 너비 설정. 
+
+	// 타이머 초기화
+	nrf_drv_timer_init(&BUTTONRELEASE_TIMER_INSTANCE, &timer_cfg, ButtonReleaseTimer_handler);
+	nrfx_timer_compare(&BUTTONRELEASE_TIMER_INSTANCE,2,300 * 500,true);				// 버튼 릴리즈 타이머, 300 미리초
+	nrfx_timer_compare(&BUTTONRELEASE_TIMER_INSTANCE,1,3000 * 500,true);			// 버튼 롱 릴리즈 타이머, 3초
+	}
+
+	void ButtonReleaseTimer_Start(void)
+	{
+	nrf_drv_timer_disable(&BUTTONRELEASE_TIMER_INSTANCE);
+	nrfx_timer_clear(&BUTTONRELEASE_TIMER_INSTANCE);
+	nrf_drv_timer_enable(&BUTTONRELEASE_TIMER_INSTANCE);
+	}
+
+	void ButtonReleaseTimer_Stop(void)
+	{
+	nrf_drv_timer_disable(&BUTTONRELEASE_TIMER_INSTANCE);
+	nrfx_timer_clear(&BUTTONRELEASE_TIMER_INSTANCE);
+	}
+
+	uint32 ButtonReleaseTimer_GetTick(void)
+	{
+	return nrfx_timer_capture(&BUTTONRELEASE_TIMER_INSTANCE , 0);
+	}
+
+	void ButtonReleaseTimer_handler(nrf_timer_event_t event_type, void* p_context)
+	{
+			// 타이머 인터럽트 핸들러 함수의 내용을 여기에 작성합니다.
+		if(Main.Device.RunningStatus != RunStat_Booting)			// 부팅 중일땐  작동하지 않음
+			{
+			Main.Key.KeyProcessCallFlag = 1;
+			}
+	nrfx_timer_clear(&BUTTONRELEASE_TIMER_INSTANCE);
+	nrf_drv_timer_disable(&BUTTONRELEASE_TIMER_INSTANCE);
+
+	}
+#else
+	void ButtonReleaseTimer_Init(void)
+	{
+
+	}
+
+	void ButtonReleaseTimer_Start(void)
+	{
+		app_timer_start(m_ButtonTimer_Release, APP_TIMER_TICKS(300), NULL);
+	}
+
+	void ButtonReleaseTimer_Stop(void)
+	{
+		app_timer_stop(m_ButtonTimer_Release);
+	}
+
+	uint32 ButtonReleaseTimer_GetTick(void)
+	{
+	return app_timer_cnt_get();
+	}
+
+	void ButtonReleaseTimer_handler(nrf_timer_event_t event_type, void* p_context)
+	{
+			// 타이머 인터럽트 핸들러 함수의 내용을 여기에 작성합니다.
+		if(Main.Device.RunningStatus != RunStat_Booting)			// 부팅 중일땐  작동하지 않음
+			{
+			Main.Key.KeyProcessCallFlag = 1;
+			}
+	}
+#endif
+
+	void BLEActiveTimer_Init(void)
+	{
+
+	}
+
+	void BLEActiveTimer_Start(uint32 BLEActiveTimeMs)
+	{
+		advertising_start();
+		app_timer_start(m_BLEActiveTimer, APP_TIMER_TICKS(BLEActiveTimeMs), NULL);
+	}
+
+	void BLEActiveTimer_Stop(void)
+	{
+		advertising_stop();
+		app_timer_stop(m_BLEActiveTimer);
+	}
+
+	uint32 BLEActiveTimer_GetTick(void)
+	{
+	return app_timer_cnt_get();
+	}
+
+	void BLEActiveTimer_Handler(nrf_timer_event_t event_type, void* p_context)
+	{
+		advertising_stop();
+	}
+
+
+void BLEConnectTimer_Start(uint32 BLEConnectTimeMs)
+{
+	app_timer_start(m_BLEConnectTimer, APP_TIMER_TICKS(BLEConnectTimeMs), NULL);
+}
+
+void BLEConnectTimer_Stop(void)
+{
+	advertising_stop();
+	app_timer_stop(m_BLEConnectTimer);
+}
+
+uint32 BLEConnectTimer_GetTick(void)
+{
+return app_timer_cnt_get();
+}
+
+void BLEConnectTimer_Handler(nrf_timer_event_t event_type, void* p_context)
+{
+	OTQV2_BLE_Disconnect();
+}
+
+uint8 EPDReturnTimer_CheckActive(void)
+{
+	if(m_EPDReturnTimer->end_val == 0xffffffffffffffff)
+		{
+		return 0;
+		}
+	else return 1;
+}
+
+void EPDReturnTimer_Start(uint32 EPDReturnTimeMs)
+{
+	ret_code_t err_code;
+	err_code = app_timer_start(m_EPDReturnTimer, APP_TIMER_TICKS(EPDReturnTimeMs), NULL);
+	APP_ERROR_CHECK(err_code);
+}
+
+void EPDReturnTimer_Stop(void)
+{
+	app_timer_stop(m_EPDReturnTimer);
+}
+
+uint32 EPDReturnTimer_GetTick(void)
+{
+return app_timer_cnt_get();
+}
+
+void EPDReturnTimer_Handler(nrf_timer_event_t event_type, void* p_context)
+{
+	// EPD return 코드 추가
+	Main.Key.IntervalProcess_EPD_CallFlag = 1;
+	Main.Key.IntervalProcess_EPD_ForceRefreshFlag = 1;
+}
+	
+
+app_timer_timeout_handler_t IntervalTimer_ADChandler(void* p_context)
+{
+	Main.Key.IntervalProcess_ADC_CallFlag = 1;
+}
+
+app_timer_timeout_handler_t IntervalTimer_handler(void* p_context)
+{
+	Main.Key.IntervalProcess_CallFlag = 1;
+	app_timer_start(m_IntervalTimer_ADC, APP_TIMER_TICKS((RecordIntervalTimeSec-6) * 1000), NULL);
+}
+
+app_timer_timeout_handler_t IntervalTimer_DisplayHandler(void* p_context)
+{
+	Main.Key.IntervalProcess_EPD_CallFlag = 1;
+}
+
+app_timer_timeout_handler_t IntervalTimer_RTCHandler(void* p_context)
+{
+	nrf_cal_rtc_handler();
+	//stWriteData.TimeStamp_UTC = mktime(&pMain->Device.Time.Calendar);
+}
+
+
+
+
+
+uint8 TimerActivatedFlag = 0;
+
+void OTQV2_Timer_Start(stMain *pMain)
+{
+	uint32 IntervalSec = 0;
+	IntervalSec = pMain->Sensor.SensorIntervalSec;
+	RecordIntervalTimeSec = IntervalSec;
+	
+	if(!TimerActivatedFlag)
+		{
+		app_timer_start(m_LEDIndicatorTimer, APP_TIMER_TICKS(250), NULL);
+		app_timer_start(m_IntervalTimer, APP_TIMER_TICKS(IntervalSec * 1000), NULL);
+		app_timer_start(m_IntervalTimer_ADC, APP_TIMER_TICKS((IntervalSec-6) * 1000), NULL);
+		if(pMain->Device.DisplayIntervalSec > 3600)			// do not EPD update in auto
+			{
+			//app_timer_start(m_IntervalTimer_EPD, APP_TIMER_TICKS((pMain->Device.DisplayIntervalSec) * 1000), NULL);
+			app_timer_stop(m_IntervalTimer_EPD);
+			}
+		else if(pMain->Device.DisplayIntervalSec == 30)
+			{
+			app_timer_start(m_IntervalTimer_EPD, APP_TIMER_TICKS((IntervalSec) * 1000), NULL);
+			}
+		else if(pMain->Device.DisplayIntervalSec)
+			{
+			app_timer_start(m_IntervalTimer_EPD, APP_TIMER_TICKS((pMain->Device.DisplayIntervalSec) * 1000), NULL);
+			}
+		else
+			{
+			app_timer_start(m_IntervalTimer_EPD, APP_TIMER_TICKS((IntervalSec) * 1000), NULL);
+			}
+		}
+	TimerActivatedFlag = 1;
+
+}
+
+void OTQV2_Timer_RTCStart(stMain *pMain)
+{
+		app_timer_start(m_IntervalTimer_RTC, APP_TIMER_TICKS(1000), NULL);
+}
+	
+void OTQV2_Timer_AllStop(stMain *pMain)
+{
+	if(TimerActivatedFlag)
+		{
+		app_timer_stop(m_LEDIndicatorTimer);
+		app_timer_stop(m_IntervalTimer);
+		app_timer_stop(m_IntervalTimer_ADC);
+		app_timer_stop(m_IntervalTimer_EPD);
+		}
+	TimerActivatedFlag = 0;
+}
+
+
+
+uint8 TimerInitFlag = 0;
+void IntervalTimer_Init(stMain *pMain)
+{
+	ret_code_t err_code;
+	if(!TimerInitFlag)
+		{
+		RecordIntervalTimeSec = pMain->Sensor.SensorIntervalSec;
+		
+			err_code = app_timer_create(&m_BLEActiveTimer,
+															APP_TIMER_MODE_SINGLE_SHOT,
+															BLEActiveTimer_Handler);
+			APP_ERROR_CHECK(err_code);
+
+			err_code = app_timer_create(&m_EPDReturnTimer,
+															APP_TIMER_MODE_SINGLE_SHOT,
+															EPDReturnTimer_Handler);
+			APP_ERROR_CHECK(err_code);
+
+			err_code = app_timer_create(&m_BLEConnectTimer,
+															APP_TIMER_MODE_SINGLE_SHOT,
+															BLEConnectTimer_Handler);
+			APP_ERROR_CHECK(err_code);
+			
+			err_code = app_timer_create(&m_LEDIndicatorTimer,
+															APP_TIMER_MODE_REPEATED,
+															LedIndicatorTimer_handler);
+			APP_ERROR_CHECK(err_code);
+
+			err_code = app_timer_create(&m_IntervalTimer_ADC,
+															APP_TIMER_MODE_SINGLE_SHOT,
+															IntervalTimer_ADChandler);
+			APP_ERROR_CHECK(err_code);
+
+			err_code = app_timer_create(&m_IntervalTimer,
+															APP_TIMER_MODE_REPEATED,
+															IntervalTimer_handler);
+			APP_ERROR_CHECK(err_code);
+
+			err_code = app_timer_create(&m_IntervalTimer_EPD,
+															APP_TIMER_MODE_REPEATED,
+															IntervalTimer_DisplayHandler);
+			APP_ERROR_CHECK(err_code);		
+
+			err_code = app_timer_create(&m_ButtonTimer_Push,
+															APP_TIMER_MODE_SINGLE_SHOT,
+															ButtonPushTimer_handler);
+			APP_ERROR_CHECK(err_code);		
+
+			err_code = app_timer_create(&m_ButtonTimer_Release,
+															APP_TIMER_MODE_SINGLE_SHOT,
+															ButtonReleaseTimer_handler);
+			APP_ERROR_CHECK(err_code);				
+		}
+		TimerInitFlag = 1;
+}
+	
+void IntervalTimer_Init_RTC(stMain *pMain)
+{
+ret_code_t err_code;
+		err_code = app_timer_create(&m_IntervalTimer_RTC,
+													APP_TIMER_MODE_REPEATED,
+													IntervalTimer_RTCHandler);
+		APP_ERROR_CHECK(err_code);		
+}
+
+
+
+
+
+/**@brief Function for the Timer initialization.
+ *
+ * @details Initializes the timer module.
+ */
+void timers_init(void)
+{
+	ret_code_t err_code;
+    // Initialize timer module, making it use the scheduler
+    err_code = app_timer_init();
+    APP_ERROR_CHECK(err_code);
+
+}

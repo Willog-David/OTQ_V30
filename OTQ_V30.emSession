@@ -1,0 +1,101 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints">
+  <BreakpointListItem trigger="" line="500" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="Source/main.c" useHWbreakpoint="false"/>
+  <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
+ </Breakpoints>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow bufferHeight="-1" addressSpace="" addressText="" bufferWidth="-1"/>
+ </FrameBufferWindow>
+ <Memory1>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="OTQ_V2" radix="0" sizeText="" addressText=""/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="OTQ_V30" radix="0" sizeText="" addressText=""/>
+ </Memory1>
+ <Memory2>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="OTQ_V2" radix="0" sizeText="" addressText=""/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="OTQ_V30" radix="0" sizeText="" addressText=""/>
+ </Memory2>
+ <Memory3>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="OTQ_V2" radix="0" sizeText="" addressText=""/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="OTQ_V30" radix="0" sizeText="" addressText=""/>
+ </Memory3>
+ <Memory4>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="OTQ_V2" radix="0" sizeText="" addressText=""/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="OTQ_V30" radix="0" sizeText="" addressText=""/>
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="OTQ_V30"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30;Application"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30;Application;Driver"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30;Application;Driver;OLED"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30;nRF_BLE"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30;nRF_Drivers"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30;nRF_Libraries"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30;nRF_Segger_RTT"/>
+  <ProjectSessionItem path="OTQ_V30;OTQ_V30;nRF_SoftDevice"/>
+ </Project>
+ <Register1>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal;UICR/NRFFW[0];UICR/NRFFW[1];UICR/NRFFW[2];UICR/NRFFW[3];UICR/NRFFW[4];UICR/NRFFW[5];UICR/NRFFW[6];UICR/NRFFW[7];UICR/NRFFW[8];UICR/NRFFW[9];UICR/NRFFW[10];UICR/NRFFW[11];UICR/NRFFW[12];UICR/NRFHW[0];UICR/NRFHW[1];UICR/NRFHW[2];UICR/NRFHW[3];UICR/NRFHW[4];UICR/NRFHW[5];UICR/NRFHW[6];UICR/NRFHW[7];UICR/NRFHW[8];UICR/NRFHW[9];UICR/NRFHW[10];UICR/NRFHW[11];UICR/CUSTOMER[0];UICR/CUSTOMER[1];UICR/CUSTOMER[2];UICR/CUSTOMER[3];UICR/CUSTOMER[4];UICR/CUSTOMER[5];UICR/CUSTOMER[6];UICR/CUSTOMER[7];UICR/CUSTOMER[8];UICR/CUSTOMER[9];UICR/CUSTOMER[10];UICR/CUSTOMER[11];UICR/CUSTOMER[12];UICR/CUSTOMER[13];UICR/CUSTOMER[14];UICR/CUSTOMER[15];UICR/CUSTOMER[16];UICR/CUSTOMER[17];UICR/CUSTOMER[18];UICR/CUSTOMER[19];UICR/CUSTOMER[20];UICR/CUSTOMER[21];UICR/CUSTOMER[22];UICR/CUSTOMER[23];UICR/CUSTOMER[24];UICR/CUSTOMER[25];UICR/CUSTOMER[26];UICR/CUSTOMER[27];UICR/CUSTOMER[28];UICR/CUSTOMER[29];UICR/CUSTOMER[30];UICR/CUSTOMER[31];UICR/PSELRESET[0];UICR/PSELRESET[1];UICR/APPROTECT;UICR/NFCPINS;UICR/DEBUGCTRL;UICR/REGOUT0;FICR/CODEPAGESIZE;FICR/CODESIZE;FICR/DEVICEID[0];FICR/DEVICEID[1];FICR/ER[0];FICR/ER[1];FICR/ER[2];FICR/ER[3];FICR/IR[0];FICR/IR[1];FICR/IR[2];FICR/IR[3];FICR/DEVICEADDRTYPE;FICR/DEVICEADDR[0];FICR/DEVICEADDR[1];FICR/PRODTEST[0];FICR/PRODTEST[1];FICR/PRODTEST[2];FICR/INFO.PART;FICR/INFO.VARIANT;FICR/INFO.PACKAGE;FICR/INFO.RAM;FICR/INFO.FLASH;FICR/TEMP.A0;FICR/TEMP.A1;FICR/TEMP.A2;FICR/TEMP.A3;FICR/TEMP.A4;FICR/TEMP.A5;FICR/TEMP.B0;FICR/TEMP.B1;FICR/TEMP.B2;FICR/TEMP.B3;FICR/TEMP.B4;FICR/TEMP.B5;FICR/TEMP.T0;FICR/TEMP.T1;FICR/TEMP.T2;FICR/TEMP.T3;FICR/TEMP.T4;FICR/NFC.TAGHEADER0;FICR/NFC.TAGHEADER1;FICR/NFC.TAGHEADER2;FICR/NFC.TAGHEADER3;FICR/TRNG90B.BYTES;FICR/TRNG90B.RCCUTOFF;FICR/TRNG90B.APCUTOFF;FICR/TRNG90B.STARTUP;FICR/TRNG90B.ROSC1;FICR/TRNG90B.ROSC2;FICR/TRNG90B.ROSC3;FICR/TRNG90B.ROSC4" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context;UICR;FICR" name="OTQ_V2" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="OTQ_V30" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register1>
+ <Register2>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="OTQ_V2" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="OTQ_V30" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register2>
+ <Register3>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="OTQ_V2" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="OTQ_V30" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register3>
+ <Register4>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="OTQ_V2" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="OTQ_V30" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register4>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Each Second">
+   <Watchpoint expression="addr" name="addr" radix="-1" linenumber="0" filename="../OTQ_V30"/>
+   <Watchpoint expression="sizeof(tab_CMCC)" name="sizeof(tab_CMCC)" radix="11" linenumber="0" filename="../OTQ_V30"/>
+  </Watches>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="499" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/main.c" selected="0" top="486" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="57" y="2152" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/OLED/LCD.c" selected="0" top="2060" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="78" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/OLED/LCD.h" selected="0" top="65" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="86" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/OLED/3.8INI.C" selected="0" top="69" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="11" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/OLED/keyscan_adc.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="290" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/OLED/FAT.h" selected="0" top="266" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="3" y="34" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/Display.c" useBinaryEdit="0" left="0" path="source/struct.h" selected="0" top="11" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="806" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/OLED/PHOTO.H" selected="0" top="770" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="9" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/OLED/keyscan_adc.c" selected="0" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="2138" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/driver/OTQV30_Init.c" selected="0" top="2143" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="111" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/OTQV30_Init.c" useBinaryEdit="0" left="0" path="source/header/OTQV2_Init.h" selected="0" top="93" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="158" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/Display_EPD_W21.c" selected="0" top="129" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="67" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/Display_EPD_W21.c" useBinaryEdit="0" left="0" path="Source/driver/Display_EPD_W21_spi.c" selected="0" top="46" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="5" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/Display_EPD_W21_spi.c" useBinaryEdit="0" left="0" path="source/header/Display_EPD_W21_spi.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="38" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/font12.c" selected="0" top="36" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="44" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/font8.c" selected="0" top="39" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="674" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/OLED/LCD.h" useBinaryEdit="0" left="0" path="../../modules/nrfx/hal/nrf_gpio.h" selected="0" top="656" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="196" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/OLED/LCD.c" useBinaryEdit="0" left="0" path="Source/driver/LOGO/Logo.c" selected="0" top="189" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1712" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/driver/EPD_Page.c" selected="0" top="1689" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="198" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/EPD_Page.c" useBinaryEdit="0" left="0" path="Source/driver/E_Ink.c" selected="0" top="198" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="48" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/Display.c" selected="1" top="38" codecName="UTF-8"/>
+ </Files>
+ <ARMCrossStudioWindow activeProject="OTQ_V30" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3711"/>
+</session>
