@@ -2,9 +2,9 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "OTQV2_WDT.h"
-#include "OTQV2_Timer.h"
-#include "OTQV2_NFC.h"
+#include "OTQV30_WDT.h"
+#include "OTQV30_Timer.h"
+#include "OTQV30_NFC.h"
 #include "BatGauge.h"
 #include "EPD_Page.h"
 #include "probe.h"
@@ -29,13 +29,13 @@
 #include "nrf_bootloader_info.h"
 
 
-#include "OTQV2_Init.h"
+#include "OTQV30_Init.h"
 
 #include "struct.h"
 #include "WillogService.h"
 #include "EEPROM.h"
 #include "shtc3.h"
-#include "OTQV2_nrfRTC.h"
+#include "OTQV30_nrfRTC.h"
 #include "Accelo.h"
 #include "KeyButton.h"
 
@@ -482,7 +482,20 @@ int main(void)
 		// Start application.
 		//rng_init();
 
-		SHTC3_GetData(&Main);
+		//SHTC3_GetData(&Main);
+		//SHT45_GetTemp(&Main);
+		PCA9537_Init();
+		MAX31865_Init(&Main);
+		MAX31865_Test(&Main);
+		TWI_EEPROMTestCode();
+		while(0)
+		{
+			wdt_feed();
+			MAX31865_Test(&Main);
+			HAL_Delay(1000);
+		//SHT45_GetTemp(&Main);
+		//MC3479_GetAccelData(&Main.Sensor.Accelo);
+		}
 		#if 1		// OLED test code
 				/* Configure the LCD Control pins -LCD ���ؿ��ƶ˿ڳ�ʼ��----------------------*/
 
@@ -497,8 +510,9 @@ int main(void)
 		HAL_Delay(15);
    
 		MLCM_Initial();
-		LCDTest();
-		while(1)
+//		LCDTest();
+			photo2();
+		while(0)
 			{
 			wdt_feed();
 			photo1();
@@ -517,7 +531,6 @@ int main(void)
 			//Open_imageFile();
 		#endif
 		EPDPage_Factory_WaitMessage(&Main);				// system initialize
-
 		HAL_Delay(3000);									// Wait for the battery voltage to stabilize
 		EPDPage_GetRawData(&Main);
 		wdt_feed();

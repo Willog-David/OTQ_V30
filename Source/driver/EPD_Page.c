@@ -6,7 +6,7 @@
 #include "Display.h"
 #include "Probe.h"
 #include "LOGO.h"
-#include "OTQV2_BLEservice.h"
+#include "OTQV30_BLEservice.h"
 
 
 extern QRCode QRtmp;

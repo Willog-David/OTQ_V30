@@ -2,7 +2,7 @@
 #define _DISPLAY_EPD_W21_SPI_
 //#include "stm32g0xx_hal.h"
 #include "struct.h"
-#include "OTQV2_Init.h"
+#include "OTQV30_Init.h"
 
 
 #define EPD_W21_MOSI_0	nrf_gpio_pin_write(OTQV2_GPIO_EPD_DA, 0)

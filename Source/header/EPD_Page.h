@@ -6,7 +6,7 @@
 #include "struct.h"
 #include "string.h"
 #include "E_Ink.h"
-#include "OTQV2_Timer.h"
+#include "OTQV30_Timer.h"
 #include "Display_EPD_W21.h"
 
 typedef enum

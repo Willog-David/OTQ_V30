@@ -8,8 +8,8 @@
 #include "nrf_pwr_mgmt.h"
 #include "TriColorLED.h"
 #include "nrf_calendar.h"
-#include "OTQV2_Init.h"
-#include "OTQV2_Timer.h"
+#include "OTQV30_Init.h"
+#include "OTQV30_Timer.h"
 #include "EEPROM.h"
 
 
@@ -163,7 +163,7 @@ else if(pMain->Device.RunningStatus == RunStat_Logging_Connected)						// ble co
 	{
 		TriColorLED_SetGreen();
 	}
-else if((pMain->Device.RunningStatus == RunStat_SelfTest2) && (LEDTestLoopCount >= 1))		// Selftest 2 모드  �이�스�중
+else if((pMain->Device.RunningStatus == RunStat_SelfTest2) && (LEDTestLoopCount >= 1))		// Selftest 2 모드  �이�스�중
 	{
 	if(LEDTestLoopCount)
 		{
@@ -202,7 +202,7 @@ else if(pMain->BLE.AdvFlag)																									// ble advertising
 	}
 else if(pMain->Device.RunningStatus == RunStat_Logging)									// logging 모드
 	{
-	if(pMain->Sensor.PCBTemp < 0)				// 0미만 구간 ��이�동
+	if(pMain->Sensor.PCBTemp < 0)				// 0미만 구간 ���이�동
 		{
 			if((IntervalCount % 20) == 0)
 				{
@@ -213,7 +213,7 @@ else if(pMain->Device.RunningStatus == RunStat_Logging)									// logging 모�
 				TriColorLED_SetOff();
 				}
 		}
-	else if((pMain->Sensor.Probe.ProbeTemp < 800) && (pMain->Sensor.Probe.ProbeTemp > 0))  // �로�2~8�도 ��이�동
+	else if((pMain->Sensor.Probe.ProbeTemp < 800) && (pMain->Sensor.Probe.ProbeTemp > 0))  // �로��2~8�도 ���이�동
 		{
 			if((IntervalCount % 20) == 0)
 				{
@@ -226,7 +226,7 @@ else if(pMain->Device.RunningStatus == RunStat_Logging)									// logging 모�
 		}
 	else
 		{
-			if((IntervalCount % 20) == 0)				// �외구간 �색 �이�동
+			if((IntervalCount % 20) == 0)				// �외구간 �색 �이�동
 				{
 				TriColorLED_SetGreen();
 				}

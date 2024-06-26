@@ -52,6 +52,7 @@ void MC3479_SetBitLow(uint8 Addr,uint8 LowBit)
 void MC3479_GetAccelData(Accelo *p)
 {
 uint8 *Array = (uint8*)p;
+uint8 readtmp[6] = {0};
 	/*
 	uint16 readtmp=0;
 	readtmp=MC3479_GetBit(0x0d);
@@ -69,7 +70,10 @@ uint8 *Array = (uint8*)p;
 	readtmp|=MC3479_GetBit(0x12);
 	p->Z=readtmp;
 	*/
-	MC3479_GetBitStream(0x0e,(uint8*)&p->X,6);
+	MC3479_GetBitStream(0x0e,readtmp,6);
+			p->X = readtmp[0]<<8 | readtmp[1] ;
+			p->Y = readtmp[2]<<8 | readtmp[3] ;
+			p->Z = readtmp[4]<<8 | readtmp[5] ;
       HAL_Delay(1);
 	/*
 	uint8 tmp;

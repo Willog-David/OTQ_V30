@@ -1,16 +1,17 @@
 
 
-#include "OTQV2_Init.h"
+#include "OTQV30_Init.h"
 #include "WillogService.h"
-#include "OTQV2_nrfRTC.h"
+#include "OTQV30_nrfRTC.h"
 #include "TriColorLED.h"
 #include "drv_rtc.h"
-#include "OTQV2_WDT.h"
-#include "OTQV2_Timer.h"
-#include "OTQV2_BLEService.h"
+#include "OTQV30_WDT.h"
+#include "OTQV30_Timer.h"
+#include "OTQV30_BLEService.h"
 #include "KeyButton.h"
 #include "EPD_Page.h"
 #include "EEPROM.h"
+#include "sht45.h"
 
 #include "nrfx_systick.h"
 
@@ -605,9 +606,10 @@ void DeInit_TWI(void)
 	if(TWIInitFlag)
 		{
 		const nrf_drv_twi_config_t twi_config = {
-       .scl                = 42,
-       .sda                = 39,
-       .frequency          = NRF_DRV_TWI_FREQ_400K,
+       .scl                = 7,
+       .sda                = 6,
+       //.frequency          = NRF_DRV_TWI_FREQ_100K,
+			 .frequency          = NRF_DRV_TWI_FREQ_400K,
        .interrupt_priority = APP_IRQ_PRIORITY_HIGH,
        .clear_bus_init     = true
     };
@@ -631,7 +633,8 @@ if(!TWIInitFlag)
 	    const nrf_drv_twi_config_t twi_config = {
        .scl                = 7,
        .sda                = 6,
-       .frequency          = NRF_DRV_TWI_FREQ_400K,
+       //.frequency          = NRF_DRV_TWI_FREQ_100K,
+			 .frequency          = NRF_DRV_TWI_FREQ_400K,
 			 //.frequency          = 0xCD00000,				// 800khz test value
        .interrupt_priority = APP_IRQ_PRIORITY_HIGH,
        .clear_bus_init     = true
@@ -1655,6 +1658,10 @@ HAL_Delay(1);
 nrf_gpio_pin_write(OTQV2_GPIO_OLED_VPP_EN, 0);
 HAL_Delay(1);
 
+nrf_gpio_cfg_output(OTQV2_GPIO_EXP_RST);
+nrf_gpio_pin_write(OTQV2_GPIO_EXP_RST, 1);
+
+
 
 nrf_gpio_pin_write(OTQV2_GPIO_LCD_PWR_EN, 1);
 HAL_Delay(1);
@@ -2046,9 +2053,11 @@ else
 void OTQV2_TWIInit(stMain *pMain)
 {
     Init_TWI();                           // twi peripheral init
+		PCA9537_SetHandler(&m_twi);
     Init_EEPROM(pMain,&m_twi);            // eeprom twi handler init
     SHTC3_TWIInit(pMain,&m_twi);   // temperature sensor handler init
-    //Init_MC3479(pMain,&m_twi_sensor);     // accelerometer handler init & register init
+		SHT45_Init(pMain,&m_twi);
+    Init_MC3479(pMain,&m_twi);     // accelerometer handler init & register init
 }
 
 void OTQV2_GetMac(stMain *pMain)

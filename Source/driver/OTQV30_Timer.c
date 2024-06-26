@@ -2,9 +2,9 @@
 
 // -- Timer define
 
-#include "OTQV2_Timer.h"
+#include "OTQV30_Timer.h"
 #include "WillogService.h"
-#include "OTQV2_BLEService.h"
+#include "OTQV30_BLEService.h"
 
 // app timer structure define
 

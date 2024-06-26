@@ -7,7 +7,7 @@
 
 #include "EEPROM.h"
 #include "nrf_twi_mngr.h"
-#include "OTQV2_WDT.h"
+#include "OTQV30_WDT.h"
 
 nrf_drv_twi_t *hi2c_handler_eeprom;
 #define EEPROM_ICAddr 0x50

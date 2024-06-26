@@ -2,7 +2,7 @@
 #include "Display_EPD_W21.h"
 #include "TriColorLED.h"
 #include "string.h"
-#include "OTQV2_WDT.h"
+#include "OTQV30_WDT.h"
 
 #define EPD_InitWaitTime 100
 #define EPD_UpdateWaitTime 60000

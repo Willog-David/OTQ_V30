@@ -11,7 +11,7 @@
 #define __LCD_H	  
 /* Includes ------------------------------------------------------------------*/
 #include "struct.h"
-#include "OTQV2_Init.h"
+#include "OTQV30_Init.h"
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
  #define uint uint16 

@@ -1,4 +1,4 @@
-#include "OTQV2_WDT.h"
+#include "OTQV30_WDT.h"
 #include "nrf_drv_wdt.h"
 
 nrf_drv_wdt_channel_id m_channel_id;

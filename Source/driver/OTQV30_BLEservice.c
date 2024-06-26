@@ -1,13 +1,13 @@
 #include "ble_srv_common.h"
 #include "app_scheduler.h"
 #include "app_timer.h"
-#include "OTQV2_Timer.h"
+#include "OTQV30_Timer.h"
 #include "nrf_calendar.h"
 #include "nrf_drv_rng.h"
 
 #include "nrf_log.h"
 
-#include "OTQV2_BLEservice.h"
+#include "OTQV30_BLEservice.h"
 #include "EEPROM.h"
 
 

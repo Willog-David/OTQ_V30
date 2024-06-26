@@ -9,7 +9,7 @@
 #include "struct.h"
 #include "EEPROM.h"
 #include "EEPROM_Internal.h"
-#include "OTQV2_Init.h"
+#include "OTQV30_Init.h"
 #include "math.h"
 
 
@@ -334,6 +334,9 @@ uint16 slot;
 
 void GetProbeTemp(stMain *pMain,uint8 OffsetEnabled)
 {
+	#if 1
+	MAX31865_Test(pMain);
+	#else
 	uint16 TempCorrection=0;
 	uint32 TempValue=0;
 	float fTempValue=0;
@@ -397,6 +400,7 @@ if(!TempCorrection)TempCorrection=CorrectionDefault;
 	//pMain->Sensor.Probe.ProbeADCValue = TempValue;
 #endif
 	//GetDigitalValue(pMain,&TempCorrection);
+	#endif
 }
 
 void ProbeCorrectionSequence(stMain *pMain)

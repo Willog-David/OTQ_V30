@@ -36,7 +36,7 @@
       gcc_entry_point="Reset_Handler"
       linker_output_format="hex"
       linker_printf_fmt_level="long"
-      linker_printf_fp_enabled="Float"
+      linker_printf_fp_enabled="Double"
       linker_printf_width_precision_supported="Yes"
       linker_scanf_fmt_level="long"
       linker_section_placement_file="flash_placement.xml"
@@ -73,6 +73,8 @@
           <file file_name="../../components/nfc/ndef/text/nfc_text_rec.c" />
           <file file_name="../../integration/nrfx/legacy/nrf_drv_rng.c" />
           <file file_name="../../modules/nrfx/drivers/src/nrfx_rng.c" />
+          <file file_name="../../modules/nrfx/drivers/src/nrfx_spi.c" />
+          <file file_name="../../modules/nrfx/drivers/src/nrfx_spim.c" />
         </folder>
         <file file_name="../../../FW-OTQ_V30/SRC/OTQ_V30/Source/driver/Accelo.c" />
         <file file_name="../../../FW-OTQ_V30/SRC/OTQ_V30/Source/driver/Base41.c" />
@@ -122,6 +124,21 @@
           <file file_name="Source/OLED/LCD.c" />
           <file file_name="Source/OLED/keyscan_adc.c" />
         </folder>
+        <file file_name="Source/driver/sht45.c" />
+        <folder Name="Sensor">
+          <file file_name="Source/driver/sensor/sht4x.c">
+            <configuration Name="Debug" build_exclude_from_build="Yes" />
+          </file>
+          <file file_name="Source/driver/sensor/sht4x_example_usage.c">
+            <configuration Name="Debug" build_exclude_from_build="Yes" />
+          </file>
+          <file file_name="Source/driver/sensor/sensirion_humidity_conversion.c" />
+          <file file_name="Source/driver/sensor/sensirion_temperature_unit_conversion.c" />
+        </folder>
+        <file file_name="PCA9537.c" />
+        <file file_name="source/driver/max31865.c" />
+        <file file_name="Source/header/max31865.h" />
+        <file file_name="../../integration/nrfx/legacy/nrf_drv_spi.c" />
       </folder>
       <file file_name="Source/main.c" />
       <file file_name="../../components/libraries/util/sdk_common.h" />
