@@ -334,7 +334,7 @@ uint16 slot;
 
 void GetProbeTemp(stMain *pMain,uint8 OffsetEnabled)
 {
-	#if 1
+	#ifdef Probe_4Wire
 	MAX31865_Test(pMain);
 	#else
 	uint16 TempCorrection=0;

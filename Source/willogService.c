@@ -11,6 +11,7 @@
 #include "OTQV30_Init.h"
 #include "OTQV30_Timer.h"
 #include "EEPROM.h"
+#include "OTQV30_NFC.h"
 
 
 const unsigned char WillogLogo[]=

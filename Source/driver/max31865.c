@@ -100,6 +100,7 @@ memset(m_tx_buf,0x00,6);
  
  ProbeTemp = HexToTemp(&HexTmp);
  pMain->Sensor.Probe.ProbeTemp = ProbeTemp*100;
+ pMain->Sensor.Probe.fProbeTemp = ProbeTemp;
  		NRF_LOG_INFO("[%10d] probe temp : "NRF_LOG_FLOAT_MARKER,getTickCount(),NRF_LOG_FLOAT(ProbeTemp));
 
 }

@@ -12,6 +12,7 @@
 #include "EPD_Page.h"
 #include "EEPROM.h"
 #include "sht45.h"
+#include "RV8263.h"
 
 #include "nrfx_systick.h"
 
@@ -2058,6 +2059,7 @@ void OTQV2_TWIInit(stMain *pMain)
     SHTC3_TWIInit(pMain,&m_twi);   // temperature sensor handler init
 		SHT45_Init(pMain,&m_twi);
     Init_MC3479(pMain,&m_twi);     // accelerometer handler init & register init
+		RV8263_Init(pMain,&m_twi);
 }
 
 void OTQV2_GetMac(stMain *pMain)

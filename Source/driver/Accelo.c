@@ -117,13 +117,15 @@ uint8 Init_MC3479(stMain *pMain,nrf_drv_twi_t *i2cHandler)
 	//MC3479_SetBitLow(0x05,0x03);		// device state set to 0 (clear mode)
 	MC3479_SetBit(0x07,0x00);		// device state set to 1 (wake mode)
 	MC3479_SetBit(0x20,0x31);		// accelo range 16g, LPF disable
-	MC3479_SetBit(0x08,0x00);		// set ODR to 25Hz
-	MC3479_SetBit(0x09,0x04);		// Shake function enable
+	//MC3479_SetBit(0x08,0x00);		// set ODR to 25Hz
+	MC3479_SetBit(0x08,0x13);		// set ODR to 100Hz
 	MC3479_SetBit(0x06,0x04);		// Shake interrupt enable
-	MC3479_SetAnyMotionThreshold(&pMain->Sensor.Accelo,3000);
+	MC3479_SetBit(0x09,0x04);		// Shake function enable
+	MC3479_SetAnyMotionThreshold(&pMain->Sensor.Accelo,6000);
 	//MC3479_SetShakeDuration(&pMain->Accelo,0x1010);
 	MC3479_GetBitStream(0x46,tmp2,2);
-	MC3479_SetBit(0x31,0x10);		// swap interrupt
+	//MC3479_SetBit(0x31,0x10);		// swap interrupt
+	MC3479_SetBit(0x31,0x00);		// no swap interrupt
 	MC3479_SetBit(0x33,0x88);		// int 2 set push pull(for current leakage), active low. int 1 set open drain, active low
 	MC3479_SetBit(0x4A,0x80);		// temporary latch enable
 	//MC3479_SetBit(0x07,0x00);		// device state set to 1 (wake mode)

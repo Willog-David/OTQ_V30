@@ -81,7 +81,7 @@ const unsigned char VersionInform_6 = '0';
 
 
 const unsigned char stVersionString[11]=
-	{VersionInform_1,VersionInform_2,VersionInform_3,VersionInform_4,VersionInform_5,VersionInform_6,'0','0','2'};
+	{VersionInform_1,VersionInform_2,VersionInform_3,VersionInform_4,VersionInform_5,VersionInform_6,'0','0','3'};
 
 const unsigned char stSubVersionString[]={"0001"};
 

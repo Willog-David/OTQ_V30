@@ -9,7 +9,8 @@
 #include "EPD_Page.h"
 #include "probe.h"
 #include "lcd.h"
-
+#include "RV8263.h"
+#include "max31865.h"
 
 #include "nordic_common.h"
 #include "nrf.h"
@@ -456,7 +457,7 @@ static uint64 oldLEDTimeStamp = 0;
 		}
 }
 
-
+		uint8 GPIOFlag = 0;
 /**@brief Function for application main entry.
  */
  
@@ -482,19 +483,30 @@ int main(void)
 		// Start application.
 		//rng_init();
 
+
 		//SHTC3_GetData(&Main);
 		//SHT45_GetTemp(&Main);
 		PCA9537_Init();
 		MAX31865_Init(&Main);
 		MAX31865_Test(&Main);
 		TWI_EEPROMTestCode();
+
+		//RV8263_SetTime(&Main);
+		RV8263_SetTimer();
+		RV8263_GetTime(&Main);
 		while(0)
 		{
 			wdt_feed();
-			MAX31865_Test(&Main);
+			if(GPIOFlag)
+				{
+				PCA9537_GetPort();
+				GPIOFlag = 0;
+				}
+					ApplyCalendar(&Main);
+			//MAX31865_Test(&Main);
 			HAL_Delay(1000);
 		//SHT45_GetTemp(&Main);
-		//MC3479_GetAccelData(&Main.Sensor.Accelo);
+		MC3479_GetAccelData(&Main.Sensor.Accelo);
 		}
 		#if 1		// OLED test code
 				/* Configure the LCD Control pins -LCD ���ؿ��ƶ˿ڳ�ʼ��----------------------*/
@@ -532,6 +544,8 @@ int main(void)
 		#endif
 		EPDPage_Factory_WaitMessage(&Main);				// system initialize
 		HAL_Delay(3000);									// Wait for the battery voltage to stabilize
+		MAX31865_Test(&Main);
+
 		EPDPage_GetRawData(&Main);
 		wdt_feed();
 		Main.Device.BatVolt = Batt_GetVoltage_int(&Main);

@@ -4,5 +4,7 @@
 
 #include "struct.h"
 
+void MAX31865_Test(stMain *pMain);
+void MAX31865_Init(stMain *pMain);
 
 #endif

@@ -617,7 +617,15 @@ void EPD_Drawing_ProbePass(stMain *pMain,uint8 *DisplayBuf,uint16 Loc_X, uint16 
 		}
 	ProbeADCTemp/=10;
 	pMain->Sensor.Probe.ProbeADCValue = ProbeADCTemp;
-  if(pMain->Sensor.Probe.ProbeADCValue < 100 || pMain->Sensor.Probe.ProbeADCValue > 16000 )
+	#ifdef Probe_4Wire
+	if (pMain->Sensor.Probe.fProbeTemp > 20 && pMain->Sensor.Probe.fProbeTemp < 30 )
+	{
+    EINK_WriteString16(DisplayBuf,Loc_X,Loc_Y,"Probe(4): Pass");
+	}
+	else if(pMain->Sensor.Probe.ProbeADCValue < 100 || pMain->Sensor.Probe.ProbeADCValue > 16000 )
+	#else
+	if(pMain->Sensor.Probe.ProbeADCValue < 100 || pMain->Sensor.Probe.ProbeADCValue > 16000 )
+	#endif
   {
     EINK_WriteString16(DisplayBuf,Loc_X,Loc_Y,"Probe   :  Fail");
   }
@@ -640,7 +648,16 @@ void EPD_Drawing_ProbeTest(stMain *pMain,uint8 *DisplayBuf,uint16 Loc_X, uint16 
 		}
 	ProbeADCTemp/=10;
 	pMain->Sensor.Probe.ProbeADCValue = ProbeADCTemp;
+	#ifdef Probe_4Wire
+	if (pMain->Sensor.Probe.fProbeTemp > 20 && pMain->Sensor.Probe.fProbeTemp < 30 )
+	{
+	sprintf(StrBuf,"TEMP-PB : %.3f",pMain->Sensor.Probe.fProbeTemp);
+	EINK_WriteString16(DisplayBuf,Loc_X,Loc_Y,StrBuf);
+	}
+	else if(pMain->Sensor.Probe.ProbeADCValue < 100 || pMain->Sensor.Probe.ProbeADCValue > 16000 )
+	#else
   if(pMain->Sensor.Probe.ProbeADCValue < 100 || pMain->Sensor.Probe.ProbeADCValue > 16000 )
+	#endif
   {
     EINK_WriteString16(DisplayBuf,Loc_X,Loc_Y,"TEMP-PB :  Fail");
   }
