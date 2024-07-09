@@ -486,6 +486,7 @@ int main(void)
 
 		//SHTC3_GetData(&Main);
 		//SHT45_GetTemp(&Main);
+		
 		PCA9537_Init();
 		MAX31865_Init(&Main);
 		MAX31865_Test(&Main);
@@ -494,6 +495,7 @@ int main(void)
 		//RV8263_SetTime(&Main);
 		RV8263_SetTimer();
 		RV8263_GetTime(&Main);
+		
 		while(0)
 		{
 			wdt_feed();
@@ -523,7 +525,8 @@ int main(void)
    
 		MLCM_Initial();
 //		LCDTest();
-			photo2();
+			wdt_feed();
+			//photo2();
 		while(0)
 			{
 			wdt_feed();

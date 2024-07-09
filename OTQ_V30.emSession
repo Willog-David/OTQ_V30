@@ -59,9 +59,9 @@
   <Watches active="1" update="Each Second">
    <Watchpoint expression="addr" name="addr" radix="-1" linenumber="0" filename="../OTQ_V30"/>
    <Watchpoint expression="sizeof(tab_CMCC)" name="sizeof(tab_CMCC)" radix="11" linenumber="0" filename="../OTQ_V30"/>
-   <Watchpoint expression="Rbuf" name="Rbuf" radix="-1" linenumber="0" filename=""/>
-   <Watchpoint expression="hi2c_handler_PCA9537" name="hi2c_handler_PCA9537" radix="-1" linenumber="0" filename=""/>
-   <Watchpoint expression="readtmp" name="readtmp" radix="-1" linenumber="0" filename=""/>
+   <Watchpoint expression="Rbuf" name="Rbuf" radix="-1" linenumber="0" filename="../OTQ_V30"/>
+   <Watchpoint expression="hi2c_handler_PCA9537" name="hi2c_handler_PCA9537" radix="-1" linenumber="0" filename="../OTQ_V30"/>
+   <Watchpoint expression="readtmp" name="readtmp" radix="-1" linenumber="0" filename="../OTQ_V30"/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -83,7 +83,7 @@
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="34" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/Display.c" useBinaryEdit="0" left="0" path="source/struct.h" selected="0" top="11" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="806" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/OLED/PHOTO.H" selected="0" top="770" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="9" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/OLED/keyscan_adc.c" selected="0" top="0" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="45" y="2046" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/driver/OTQV30_Init.c" selected="0" top="2037" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="2046" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/driver/OTQV30_Init.c" selected="0" top="2037" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="158" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/Display_EPD_W21.c" selected="0" top="129" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="67" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/Display_EPD_W21.c" useBinaryEdit="0" left="0" path="Source/driver/Display_EPD_W21_spi.c" selected="0" top="46" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="5" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/Display_EPD_W21_spi.c" useBinaryEdit="0" left="0" path="source/header/Display_EPD_W21_spi.h" selected="0" top="0" codecName="Default"/>
@@ -93,17 +93,17 @@
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="196" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/OLED/LCD.c" useBinaryEdit="0" left="0" path="Source/driver/LOGO/Logo.c" selected="0" top="189" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1712" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/driver/EPD_Page.c" selected="0" top="1689" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="198" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/EPD_Page.c" useBinaryEdit="0" left="0" path="Source/driver/E_Ink.c" selected="0" top="198" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="50" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/Display.c" selected="0" top="38" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="11" y="55" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/driver/sht45.c" selected="0" top="38" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="50" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/Display.c" selected="0" top="38" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="55" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/driver/sht45.c" selected="0" top="38" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="52" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="PCA9537.c" selected="0" top="35" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1386" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/main.c" useBinaryEdit="0" left="0" path="Source/driver/EEPROM.c" selected="0" top="1354" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="136" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/OTQV30_Init.c" useBinaryEdit="0" left="0" path="source/header/OTQV30_Init.h" selected="0" top="124" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="64" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/OTQV30_Error.c" selected="0" top="48" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="64" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/driver/OTQV30_Error.c" selected="0" top="48" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/Source/driver/OTQV30_Init.c" useBinaryEdit="0" left="0" path="../../components/ble/ble_advertising/ble_advertising.h" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="37" y="39" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="source/driver/max31865.c" selected="0" top="12" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="39" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="source/driver/max31865.c" selected="0" top="13" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="4" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Source/header/max31865.h" selected="0" top="0" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="22" y="6118" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="6103" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="507" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/source/driver/max31865.c" useBinaryEdit="0" left="0" path="../../integration/nrfx/legacy/nrf_drv_spi.h" selected="1" top="491" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="6118" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="6103" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="507" useTextEdit="1" openedFrom="C:/1_Work/FW_BLE/WORK_MultiNRF/OTQ_V30/Project/FW-OTQ_V30/SRC/OTQ_V30/source/driver/max31865.c" useBinaryEdit="0" left="0" path="../../integration/nrfx/legacy/nrf_drv_spi.h" selected="1" top="491" codecName="Default"/>
  </Files>
- <ARMCrossStudioWindow activeProject="OTQ_V30" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3711"/>
+ <ARMCrossStudioWindow activeProject="OTQ_V30" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>

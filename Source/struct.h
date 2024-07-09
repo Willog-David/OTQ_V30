@@ -40,7 +40,7 @@
 	//#define ForceIndexValue 35999
 #endif
 
-#define Probe_4Wire
+//#define Probe_4Wire
 
 #define UpTimeMode
 //#define THD

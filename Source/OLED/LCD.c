@@ -18,6 +18,8 @@ extern void Delay(uint32 nCount);
 extern uint16 GPIOB_DATA;
 unsigned char column = 0,page = 0;
 
+uint8 LCD_Canvas[2560] = {0};		// 128 * 160 / 8bit
+
 //extern SD_ReadSingleBlock(DWORD sector, BYTE *buffer);//��һ������
 extern DWORD FAT_NextCluster(DWORD cluster);//������һ�غ�
 extern DWORD FAT_Open(BYTE * dir);//�����ļ�
@@ -2643,8 +2645,13 @@ void MLCM_Initial(void)
 	W_COM(0xD3);	//display offset
 	W_COM(0x60);
 	
+	#if 0
+	W_COM(0xAC);	//mono mode
+	W_COM(0x01);
+	#else
 	W_COM(0xAC);	//gray mode
 	W_COM(0x00);
+	#endif
 	
 	W_COM(0xD5);	//Oscillator Frequency
 	W_COM(0x51);
@@ -3567,6 +3574,8 @@ void photo1()
   unsigned int i,j,n;
   unsigned char data1,data2,data3,data4,data5,data6; 
 
+	W_COM(0xAE);
+	
   W_COM(0x21);		//Set Column Start and End Address
   W_COM(0x01);
   W_COM(0x00);		 //00
@@ -3591,13 +3600,15 @@ void photo1()
 
 	}
   }
- 
+ W_COM(0xAF);
 }
 
 void photo2()
   {
   unsigned int i,j,n;
   unsigned char data1,data2,data3,data4,data5,data6; 
+	
+	W_COM(0xAE);
 
   W_COM(0x21);		//Set Column Start and End Address
   W_COM(0x01);
@@ -3622,7 +3633,7 @@ void photo2()
 
 	}
   }
-  
+  W_COM(0xAF);
 }
 
 void photo3()
@@ -3630,6 +3641,8 @@ void photo3()
   unsigned int i,j,n;
   unsigned char data1,data2,data3,data4,data5,data6; 
 
+	W_COM(0xAE);
+	
   W_COM(0x21);		//Set Column Start and End Address
   W_COM(0x01);
   W_COM(0x00);		 //00
@@ -3653,7 +3666,7 @@ void photo3()
 
 	}
   }
-  
+  W_COM(0xAF);
 }	
 	
 	
@@ -3750,45 +3763,70 @@ void Write_816_characters(unsigned char No)
   column += 8;
 }
 
-
-/******************************************************
-- ������������OLED��ʾ��д���ַ���
-- ���ģ�飺
-- �������ԣ��ⲿ���û��ɵ���
-- ����˵����*str���ַ���
-- ����˵������
-******************************************************/
-
-void OLED_ConsoleWrite(unsigned char *str,unsigned int Count)
+uint8 bitQuadrupler(uint8 data, uint8 number)
 {
-  while (Count--)
-    {
-//		if(*str >= 32 && *str <= 127)
-//		{
-			Write_816_characters(*str++);
-//		}
-//		else
-//		{
-//		if(*str == '\n')
-//		{	
-//			str++;
-//			if(page >= 63)
-//			{OLED_Claer_screen(0x00);page = 0;column = 0;}
-//			column = 0;
-//			page += 16;	
-//		}
-//		else 
-//		{	//OLED_W_COMommand(0xb0);OLED_W_COMommand(0x10);OLED_W_COMommand(0x00);OLED_Write_dat(0xff);
-//		//OLED_Write_dat(*str++);OLED_Write_dat(*str++);delay_ms(65532);
-//			Write_1616_characters(*str++,*str++);
-//		}
-//		}
-    }
-	/*if(column!=0)
-	{
-	surplu_sclear_screen();
-	}*/
+	uint8 ret = 0;
+	if(data&(0x80 >> number*2))
+		{
+		ret = 0x0f;
+		}
+	else
+		{
+		ret = 0x00;
+		}
+	if(data&(0x40 >> number*2))
+		{
+		ret |= 0xf0;
+		}
+	else
+		{
+		ret |= 0x00;
+		}
+	return ret;
 }
 
+void LCD_Display(uint8 *buf)
+  {
+  unsigned int i,j,n;
+  unsigned char data1,data2,data3,data4,data5,data6; 
+
+	W_COM(0xAE);		//Set display off
 	
+  W_COM(0x21);		//Set Column Start and End Address
+  W_COM(0x01);
+  W_COM(0x00);		 //00
+  W_COM(0x9F);		 //160
+
+  W_COM(0x22);		//Set Row Start and End Address
+  W_COM(0x01);
+  W_COM(0x00);		 //32
+  W_COM(0x7F);		 //128
+
+  //W_COM(0xE0);
+	#if 0			// 1 = mono
+	for(i=0;i<1;i++)
+	{ 
+		for(j=0;j<160;j++)
+		{
+		n=j*16;
+
+		//W_DATA8(~buf[n+i]);
+		W_DATA8(~(0x10>>(i%4)));
+		W_DATA8(~0xFF);
+		}
+	}
+	#else
+	for(i=0;i<64;i++)
+	{ 
+		for(j=0;j<160;j++)
+		{
+		n=j*16;
+
+		W_DATA8(~(bitQuadrupler(buf[n+i/4],i%4)));
+		}
+	}
+	#endif
+W_COM(0xAF);		//Set display on
+}
+
 /******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/

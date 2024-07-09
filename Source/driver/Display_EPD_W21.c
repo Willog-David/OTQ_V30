@@ -287,6 +287,7 @@ switch(Side)
   EPD_W21_WriteDATA(RAMSide);
 }
 
+#ifdef EPD_DISPLAY
 void EPD_WhiteScreen_ALL(stMain *pMain,const unsigned char *datas)
 {
    unsigned int i;	
@@ -348,7 +349,12 @@ EPD_ScreenSide(ScreenSide_Portrait_Up);
 		EPD_Update(pMain);	 
    //EPD_Update_Fast(pMain);	 
 }
-
+#else
+void EPD_WhiteScreen_ALL(stMain *pMain,const unsigned char *datas)
+{
+	LCD_Display(datas);
+}
+#endif
 uint8 EPD_CallUpdate(stMain *pMain)
 {
 uint8 ret = 0;

@@ -8,8 +8,13 @@
 #include "E_Ink.h"
 #include "string.h"
 
+#ifdef EPD_DISPLAY
 #define EPD_WIDTH 176/8
 #define EPD_HEIGHT 264
+#else
+#define EPD_WIDTH 128/8
+#define EPD_HEIGHT 160
+#endif
 
 void EINK_WriteFontVertical(uint8 *buf,uint8 x, uint8 y, uint8 Character)
 {
